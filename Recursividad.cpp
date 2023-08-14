@@ -2,21 +2,23 @@
 
 using namespace std;
 
-int factorial(int n);
 int suma(int n);
+int factorial(int n);
+int fibonacci(int n);
 int mcd(int n, int m);
 int mcm(int n, int m);
 
 int main()
 {
-    // cout << factorial(2);
     // cout << suma(5);
+    // cout << factorial(2);
+    // cout<< fibonacci(7);
     // cout << mcd(150, 39);
     cout << mcm(0, 39);
     return 0;
 }
 
-//Recursividad directa
+// Recursividad directa
 int factorial(int n)
 {
     // Condicion de salida - Caso base
@@ -39,6 +41,17 @@ int suma(int n)
     return n + suma(n - 1);
 }
 
+int fibonacci(int n)
+{
+    // Caso base
+    if (n < 2)
+    {
+        return n;
+    }
+    // Llamada a la función
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
 int mcd(int n, int m)
 {
     // Caso base
@@ -50,7 +63,7 @@ int mcd(int n, int m)
     return mcd(m, n % m);
 }
 
-//Recursividad indirecta
+// Recursividad indirecta
 int mcm(int n, int m)
 {
     if ((n == 0) || (m == 0))
