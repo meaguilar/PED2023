@@ -2,19 +2,22 @@
 
 using namespace std;
 
-int suma(int n);
 int factorial(int n);
+int suma(int n);
 int fibonacci(int n);
 int mcd(int n, int m);
 int mcm(int n, int m);
+int potencia(int base, int exp);
+void cuentaRegresiva(int x);
 
 int main()
 {
-    // cout << suma(5);
     // cout << factorial(2);
-    // cout<< fibonacci(7);
-    // cout << mcd(150, 39);
-    cout << mcm(0, 39);
+    // cout << suma(5);
+    cout << mcd(15, 5);
+    // cout << mcm(0, 39);
+    // cout << fibonacci(7);
+    // cout<< potencia(2,3);
     return 0;
 }
 
@@ -50,6 +53,28 @@ int fibonacci(int n)
     }
     // Llamada a la función
     return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int potencia(int base, int exp)
+{
+    // Caso base
+    if (exp == 0)
+        return 1;
+    return base * potencia(base, exp - 1);
+}
+
+void cuentaRegresiva(int x)
+{
+    // Caso base
+    if (x == 0)
+    {
+        return;
+    }
+    else
+    {
+        cout << x;
+        cuentaRegresiva(x - 1);
+    }
 }
 
 int mcd(int n, int m)
