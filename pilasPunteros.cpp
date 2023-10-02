@@ -38,7 +38,7 @@ int main()
 void Insertar(int n)
 {
     // Reserva de memoria
-    struct Nodo *nuevoNodo = new Nodo();
+    struct Nodo *nuevoNodo = new Nodo;
     // asignar el valor
     nuevoNodo->elemento = n;
     // Establece el nuevo nodo agregado como pila

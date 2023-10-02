@@ -32,7 +32,7 @@ int main()
 void InsertarInicio(int n)
 {
     // Reserva de memoria
-    struct Nodo *nuevoNodo = new Nodo();
+    struct Nodo *nuevoNodo = new Nodo;
     // Variable auxiliar almacena el nodo actual
     struct Nodo *temporal = lista;
     nuevoNodo->elemento = n;
@@ -54,7 +54,7 @@ void InsertarInicio(int n)
 void InsertarFinal(int n)
 {
     // Reserva de memoria
-    struct Nodo *nuevoNodo = new Nodo();
+    struct Nodo *nuevoNodo = new Nodo;
     // Variable auxiliar almacena el nodo actual
     struct Nodo *temporal = lista;
     nuevoNodo->elemento = n;
@@ -78,7 +78,7 @@ void InsertarFinal(int n)
 void InsertarIntermedio(int n, int posicion)
 {
     // Reserva de memoria
-    struct Nodo *nuevoNodo = new Nodo();
+    struct Nodo *nuevoNodo = new Nodo;
     // Variable auxiliar almacena el nodo actual
     struct Nodo *temporal = lista;
     nuevoNodo->elemento = n;

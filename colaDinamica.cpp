@@ -57,7 +57,7 @@ bool Vacia()
 void Insertar(int n)
 {
     // Reserva de memoria
-    struct Nodo *nuevoNodo = new Nodo();
+    struct Nodo *nuevoNodo = new Nodo;
     //Asignacion del valor que ingresa el usuario 
     nuevoNodo->elemento = n;
     nuevoNodo->siguiente = nullptr;
