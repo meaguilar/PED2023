@@ -25,7 +25,7 @@ int main()
 int factorial(int n)
 {
     // Condicion de salida - Caso base
-    if (n == 1)
+    if (n == 1) 
     {
         return 1;
     }
