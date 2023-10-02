@@ -1,1 +1,1 @@
-# PED2023
+# Programación de Estructuras Dinámicas
