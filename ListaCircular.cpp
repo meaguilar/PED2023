@@ -24,6 +24,7 @@ int main()
     InsertarInicio(4);
     InsertarFinal(78);
     InsertarFinal(7);
+    EliminarFinal();
     Imprimir();
     cout << "------------------------------" << endl;
    
@@ -47,8 +48,8 @@ void InsertarInicio(int n)
     else 
     {   
         nuevoNodo->siguiente = lista;
-         //Circularidad
         lista = nuevoNodo;
+        //Circularidad
         temporal->siguiente = lista;
     }
 }
@@ -126,7 +127,7 @@ void EliminarFinal()
             temporal = temporal->siguiente;
         }
 
-        temporal2->siguiente = temporal->siguiente;
+        temporal2->siguiente = lista;
         delete temporal;
 
     } // SI SOLO HAY UN ELEMENTO
