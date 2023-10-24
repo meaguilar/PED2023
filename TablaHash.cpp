@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define tam 7
+#define dimension 7
 
 struct Registro
 {
@@ -12,11 +12,12 @@ struct Registro
 struct Nodo
 {
     struct Registro registro;
-    struct Nodo *anterior, *siguiente;
+    struct Nodo *anterior;
+    struct Nodo *siguiente;
 };
 
-Nodo *tabla[tam] = {NULL};
-struct Nodo *lista = NULL;
+struct Nodo *lista = nullptr;
+struct Nodo *tabla[dimension] = {nullptr};
 
 void Agregar(int);
 int F_Hash(int);
@@ -28,17 +29,13 @@ void Imprimir();
 int main(void)
 {
 
+    Agregar(12);
     Agregar(40);
     Agregar(33);
     Agregar(50);
     Agregar(75);
-    BuscarR(33);
     EliminarR(33);
     Imprimir();
-
-    /*cout << tabla[5]->registro.dato << endl;
-     cout << tabla[5]->siguiente->registro.dato << endl;
-     cout << tabla[5]->siguiente->siguiente->registro.dato << endl; */
 }
 
 void Agregar(int _dato)
@@ -48,18 +45,18 @@ void Agregar(int _dato)
     r.dato = _dato;
     int clave = F_Hash(_dato);
     nuevoNodo->registro = r;
-    nuevoNodo->anterior = NULL;
+    nuevoNodo->anterior = nullptr;
     nuevoNodo->siguiente = tabla[clave];
     if (tabla[clave])
         tabla[clave]->anterior = nuevoNodo;
     tabla[clave] = nuevoNodo;
 
-    cout << "Direccion " << tabla[clave] << " Indice donde se almacena " << clave << " Dato almacenado " << r.dato << endl;
+    cout << " Dir. nodo " << tabla[clave] << " Indice donde se almacena " << clave << " Dato almacenado " << r.dato << endl;
 }
 
 int F_Hash(int _dato)
 {
-    return _dato % tam;
+    return _dato % dimension;
 }
 
 struct Nodo *Buscar(int _dato, int _clave)
@@ -73,7 +70,7 @@ struct Nodo *Buscar(int _dato, int _clave)
         }
         nuevoNodo = nuevoNodo->siguiente;
     }
-    return NULL;
+    return nullptr;
 }
 
 void BuscarR(int _dato)
@@ -110,7 +107,11 @@ void EliminarR(int _dato)
             tabla[clave] = nuevoNodo->siguiente;
         }
 
-        nuevoNodo->anterior->siguiente = nuevoNodo->siguiente;
+        if (nuevoNodo->anterior)
+        {
+            nuevoNodo->anterior->siguiente = nuevoNodo->siguiente;
+        }
+
         delete nuevoNodo;
     }
     else
@@ -122,17 +123,14 @@ void EliminarR(int _dato)
 void Imprimir()
 {
     struct Nodo *temporal;
-    for (int i = 0; i < tam; i++)
+    for (int i = 0; i < dimension; i++)
     {
         temporal = tabla[i];
-        if (temporal != NULL)
-        {
-            while (temporal != NULL)
-            {
-                cout << "Indice de almacenamiento " << i << " direccion " << tabla[i] << " - " << temporal->registro.dato << endl;
 
-                temporal = temporal->siguiente;
-            }
+        while (temporal != nullptr)
+        {
+            cout << "Indice de almacenamiento " << i << " direccion del indice del arreglo " << tabla[i] << " dir. nodo " << temporal << " dir. nodo anterior" << temporal->anterior << " - " << temporal->registro.dato << endl;
+            temporal = temporal->siguiente;
         }
     }
 }
